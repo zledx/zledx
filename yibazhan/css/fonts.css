@@ -1,0 +1,107 @@
+@font-face {
+    font-family: 'icon91';
+    src: url('../../yibazhan/font/icon91.eot?b0udv7');
+    src: url('../../yibazhan/font/icon91.eot?b0udv7') format('embedded-opentype'),
+        url('../../yibazhan/font/icon91.ttf?b0udv7') format('truetype'),
+        url('../../yibazhan/font/icon91.woff?b0udv7') format('woff'),
+        url('../../yibazhan/images/icon91.svg?b0udv7') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icon91' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    --font-icon-color: #007aff;
+}
+
+html[data-theme=dark] {
+    --font-icon-color: #007aff;
+}
+
+.icon-tab-icon-tuijian-default:before {
+    content: "\e900";
+    color: var(--font-icon-color);
+}
+
+.icon-tab-icon-tuijian-select:before {
+    content: "\e901";
+    color: var(--font-icon-color);
+}
+
+.icon-tab-icon-yule-default:before {
+    content: "\e902";
+    color: var(--font-icon-color);
+}
+
+.icon-tab-icon-yule-select:before {
+    content: "\e903";
+    color: var(--font-icon-color);
+}
+
+.icon-tab-icon-shipin-select:before {
+    content: "\e904";
+    color: var(--font-icon-color);
+}
+
+.icon-tab-icon-shipin-default:before {
+    content: "\e905";
+    color: var(--font-icon-color);
+}
+
+.icon-tab-icon-zhibo-default:before {
+    content: "\e906";
+    color: var(--font-icon-color);
+}
+
+.icon-tab-icon-zhibo-select:before {
+    content: "\e907";
+    color: var(--font-icon-color);
+}
+
+.icon-icon-icon-dsp:before {
+    content: "\e908";
+    color: #007aff;
+}
+
+.icon-moon:before {
+    content: "\e909";
+}
+
+.icon-sun:before {
+    content: "\e90a";
+}
+
+
+@media screen and (max-width: 768px) {
+    .icon-tab-icon-tuijian-default:before {
+        color: #999999;
+    }
+
+    .icon-tab-icon-yule-default:before {
+        color: #999999;
+    }
+
+    .icon-tab-icon-shipin-default:before {
+        color: #999999;
+    }
+
+    .icon-tab-icon-zhibo-default:before {
+        color: #999999;
+    }
+}

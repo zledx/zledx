@@ -1,0 +1,1176 @@
+:root {
+    --body-bg-color: #fbfbfb;
+    --content-bg-color: #f5f5f5;
+    --card-bg-color: #f5f5f5;
+    --text-color: #1d1d20;
+    --blockquote-color: #666;
+    --link-color: #555;
+    --link-hover-color: #222;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --brand-color: #fff;
+    --brand-hover-color: #fff;
+    --table-row-odd-bg-color: #f9f9f9;
+    --table-row-hover-bg-color: #f5f5f5;
+    --menu-item-bg-color: #f5f5f5;
+    --theme-color: #222;
+    --btn-default-bg: #f3f2f7;
+    --btn-default-text-color: #007aff;
+    --btn-default-color: #555;
+    --btn-default-border-color: #555;
+    --btn-default-hover-bg: #222;
+    --btn-default-hover-color: #fff;
+    --btn-default-hover-border-color: #222;
+    --main-background: #fff;
+    --app-description-color: #89888c;
+    --app-announcement-color: rgba(29, 29, 32, 0.1);
+    --nav-active-color: rgba(0, 0, 0, 0.1);
+    --mobile-nav-active-bg: white;
+    --notice-background-color: rgba(242, 242, 242, 0.8);
+}
+
+html[data-theme=dark] {
+    --body-bg-color: #282828;
+    --content-bg-color: #333;
+    --card-bg-color: #555;
+    --text-color: #fff;
+    --blockquote-color: #888;
+    --link-color: #ccc;
+    --link-hover-color: #fff;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --brand-color: #ddd;
+    --brand-hover-color: #ddd;
+    --table-row-odd-bg-color: #282828;
+    --table-row-hover-bg-color: #363636;
+    --menu-item-bg-color: #555;
+    --theme-color: #ddd;
+    --btn-default-bg: #f2f2f7;
+    --btn-default-text-color: #007aff;
+    --btn-default-color: #ccc;
+    --btn-default-border-color: #555;
+    --btn-default-hover-bg: #222;
+    --btn-default-hover-color: #ccc;
+    --btn-default-hover-border-color: #222;
+    --highlight-background: #1d1f21;
+    --main-background: #1d1f20;
+    --app-description-color: #89888c;
+    --app-announcement-color: rgba(255, 255, 255, 0.1);
+    --nav-active-color: rgba(255, 255, 255, 0.1);
+    --mobile-nav-active-bg: transparent;
+    --notice-background-color: rgba(30, 30, 30, 0.75);
+}
+
+body {
+    height: 100%;
+    background: var(--main-background);
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+main {
+    width: 100%;
+    margin: 0 auto;
+    /* max-width: 1200px; */
+    background-color: var(--main-background);
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+main .nav {
+    width: 300px;
+    border-right: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+main .nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+main .nav .mobile-announcement {
+    display: none;
+}
+
+main .nav ul li {
+    color: var(--text-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+main .nav ul li:hover {
+    background-color: var(--nav-active-color);
+}
+
+main .nav ul li.active {
+    background-color: var(--nav-active-color);
+}
+
+main .nav ul li span {
+    font-size: 35px;
+    margin-right: 5px;
+}
+
+main .content {
+    flex: 1;
+    width: 100%;
+}
+
+main .content .announcement {
+    color: var(--text-color);
+    font-size: 16px;
+    margin: 20px;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 35px;
+    background-color: var(--app-announcement-color);
+    overflow: hidden;
+}
+
+main .content .announcement-container {
+    width: calc(100vw - 321px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    padding-right: 20px;
+}
+
+main .content .announcement-container .theme-container {
+    color: var(--text-color);
+    text-align: center;
+    flex-shrink: 0;
+}
+
+
+main .content .announcement-container .theme-container .theme-set {
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+main .content .announcement-container .theme-container .icon-moon {
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 17px;
+    background-color: var(--app-announcement-color);
+    color: #007aff;
+}
+
+main .content .announcement-container .theme-container.dark .theme-set::before {
+    content: '昼';
+}
+
+main .content .announcement-container .theme-container.light .theme-set::before {
+    content: '夜';
+}
+
+main .content .announcement-container .theme-container.dark .icon-moon::before {
+    content: "\e90a" !important;
+}
+
+main .content .announcement-container .theme-container.light .icon-moon::before {
+    content: "\e909" !important;
+}
+
+.notice-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    overflow: hidden;
+    display: none;
+}
+
+.notice-popup.open {
+    display: block;
+}
+
+.notice-popup.close {
+    display: none;
+}
+
+.notice-popup .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.notice-popup .popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+}
+
+.notice-popup .popup-content .title {
+    width: 100%;
+    padding: 20px;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    -webkit-backdrop-filter: blur(60px);
+    backdrop-filter: blur(60px);
+    background-color: var(--notice-background-color);
+    font-size: 18px;
+    text-align: center;
+    box-sizing: border-box;
+    color: var(--text-color);
+    margin-bottom: -0.1px;
+    font-weight: 500;
+}
+
+.notice-popup .popup-content .content {
+    width: 100%;
+    font-size: 14px;
+    padding: 20px 40px;
+    -webkit-backdrop-filter: blur(60px);
+    backdrop-filter: blur(60px);
+    background-color: var(--notice-background-color);
+    color: var(--text-color);
+    text-align: left;
+    box-sizing: border-box;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+
+.notice-popup .popup-content .content a {
+    color: #0a84ff !important;
+}
+
+.notice-popup .popup-content .content pre {
+    line-height: 1.2;
+    box-sizing: border-box;
+    white-space: pre-line;
+}
+
+.notice-popup .popup-content .confirm {
+    width: 100%;
+    padding: 20px;
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+    -webkit-backdrop-filter: blur(60px);
+    backdrop-filter: blur(60px);
+    background-color: var(--notice-background-color);
+    color: #0a84ff;
+    text-align: center;
+    box-sizing: border-box;
+    border-top: 1px solid var(--border-color);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+main .content .announcement .text {
+    flex: 1;
+    overflow: hidden;
+    width: calc(100vw - 415px);
+    height: 18px;
+}
+
+main .content .announcement .text .marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+main .content .announcement .icon-icon-icon-dsp {
+    font-size: 35px;
+}
+
+main .nav .title {
+    color: var(--text-color);
+    font-size: 35px;
+    padding: 20px;
+}
+
+main .applications-list-container {
+    padding: 0;
+}
+
+main .applications-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main .applications-list .application {
+    width: 100%;
+    padding-bottom: 20px;
+    display: none;
+}
+
+main .applications-list .application.active {
+    display: block;
+}
+
+main .applications-list .application.fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+main .applications-list .application.fadeOut {
+    animation: fadeOut 0.5s ease-in-out;
+}
+
+main .applications-list .application .title {
+    color: var(--text-color);
+    font-size: 28px;
+    margin-bottom: 10px;
+    padding: 15px 25px;
+    font-weight: 500;
+}
+
+main .applications-list .application .content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+main .applications-list .application .content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main .applications-list .application .content ul li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+main .applications-list .application .content ul li .application-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding-left: 40px;
+}
+
+main .applications-list .application .content ul li .application-link img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    border-radius: 10px;
+    object-fit: contain;
+    position: relative;
+    overflow: hidden;
+}
+
+main .applications-list .application .content ul li .application-link img::before {
+    content: "";
+    display: block;
+    padding-bottom: 100%
+}
+
+main .applications-list .application .content ul li .application-link img::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../../yibazhan/images/app-bg.png?v=1') no-repeat center;
+    background-size: 100%;
+    background-color: var(--app-announcement-color);
+}
+
+main .applications-list .application .content ul li .application-link .information {
+    flex: 1;
+    padding: 27px 30px 27px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+main .applications-list .application .content ul li .application-link .information .name-description {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 170px;
+}
+
+main .applications-list .application .content ul li .application-link .information .name-description .name {
+    color: var(--text-color);
+    font-size: 18px;
+}
+
+main .applications-list .application .content ul li .application-link .information .name-description .description {
+    font-size: 14px;
+    margin-top: 5px;
+    overflow: hidden;
+    color: var(--app-description-color);
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+main .applications-list .application .content ul li .application-link .information .setup {
+    font-size: 14px;
+    margin-left: 30px;
+    color: var(--btn-default-text-color);
+    border-radius: 35px;
+    padding: 5px 18px;
+    background-color: var(--btn-default-bg);
+}
+
+main .content .applications-list .banner-container {
+    width: calc(100vw - 301px);
+    height: 230px;
+    background-color: var(--app-announcement-color);
+    overflow: hidden;
+    position: relative;
+}
+
+main .content .applications-list .banner-container .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+main .content .applications-list .banner-container .swiper:hover .swiper-button-next {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+main .content .applications-list .banner-container .swiper:hover .swiper-button-prev {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+main .content .applications-list .banner-container .swiper .swiper-button-next {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+main .content .applications-list .banner-container .swiper .swiper-button-prev {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+main .content .applications-list .banner-container .swiper .swiper-slide a {
+    display: block;
+    height: 230px;
+    text-align: center;
+    color: var(--body-bg-color);
+}
+
+main .content .applications-list .banner-container .swiper .swiper-slide img {
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+main .content .applications-list .banner-container .pcSwiper .swiper-slide img {
+    height: 230px;
+}
+
+main .content .applications-list .banner-container .mobileSwiper {
+    display: none;
+}
+
+main .content .mobile-title {
+    display: none;
+}
+
+main .application .fun-banner {
+    display: none;
+}
+
+main .application .category-list {
+    width: 100%;
+}
+
+main .content .applications-list .swiper-container {
+    width: calc(100vw - 301px);
+    height: 230px;
+    background-color: var(--app-announcement-color);
+    overflow: hidden;
+    position: relative;
+}
+
+main .content .applications-list .swiper-container .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+main .content .applications-list .swiper-container .swiper:hover .swiper-button-next {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+main .content .applications-list .swiper-container .swiper:hover .swiper-button-prev {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+main .content .applications-list .swiper-container .swiper .swiper-button-next {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+main .content .applications-list .swiper-container .swiper .swiper-button-prev {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+main .content .applications-list .swiper-container .swiper .swiper-slide a {
+    display: block;
+    height: 230px;
+    text-align: center;
+    color: var(--body-bg-color);
+}
+
+main .content .applications-list .swiper-container .swiper .swiper-slide img {
+    object-fit: contain;
+    margin: 0 auto;
+    width: 900px;
+    height: 230px;
+    position: relative;
+}
+
+main .content .applications-list .swiper-container .swiper .swiper-slide img::before {
+    content: "";
+    display: block;
+    padding-bottom: 25.5%
+}
+
+main .content .applications-list .swiper-container .swiper .swiper-slide img:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../../yibazhan/images/banner-bg.png') no-repeat center;
+    background-size: 30%;
+}
+
+main .content .applications-list .banner-container .pcSwiper .swiper-slide img {
+    width: 900px;
+    height: 230px;
+    position: relative;
+}
+
+main .content .applications-list .banner-container .pcSwiper .swiper-slide img::before {
+    content: "";
+    display: block;
+    padding-bottom: 25.5%
+}
+
+main .content .applications-list .banner-container .pcSwiper .swiper-slide img::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../../yibazhan/images/banner-bg.png') no-repeat center;
+    background-size: 30%;
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --mobile-background-color: white;
+        --nav-bar-background: white;
+        --mobile-announcement-background-color: rgba(22, 22, 22, 0.5);
+        --mobile-setups-background-color: #f3f2f7;
+        --mobile-fun-banner-background-color: rgba(0, 0, 0, 0.2);
+        --mobile-banner-desc-background-color: #89888c;
+        --mobile-theme-background-color: rgba(0, 0, 0, 0.1);
+        --mobile-theme-text-color: #7e7e7e;
+        --mobile-theme-icon-background-color: white;
+        --mobile-theme-icon-text-color: #007aff;
+    }
+
+    html[data-theme=dark] {
+        --mobile-background-color: black;
+        --nav-bar-background: rgba(22, 22, 22, 0.8);
+        --mobile-announcement-background-color: rgba(255, 255, 255, 0.3);
+        --mobile-setups-background-color: #1c1c1e;
+        --mobile-fun-banner-background-color: rgba(255, 255, 255, 0.8);
+        --mobile-banner-desc-background-color: #89888c;
+        --mobile-theme-background-color: #1d1d20;
+        --mobile-theme-text-color: white;
+        --mobile-theme-icon-background-color: #007aff;
+        --mobile-theme-icon-text-color: white;
+    }
+
+    body {
+        background-color: var(--mobile-background-color);
+    }
+
+    main {
+        background-color: var(--mobile-background-color);
+        height: 100%;
+    }
+
+    main .nav {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 99;
+    }
+
+    main .content .announcement-container {
+        display: none;
+    }
+
+    main .content .mobile-title {
+        display: block;
+        padding: 4vw 4vw 0 4vw;
+        color: var(--text-color);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    main .content .mobile-title h1 {
+        font-size: 6.2vw;
+        font-weight: 500;
+        flex: 1;
+    }
+
+    main .applications-list .application {
+        padding-bottom: 30vw;
+    }
+
+    main .content .applications-list .banner-container {
+        width: calc(100vw - 8vw);
+        height: 56vw;
+        padding: 4vw 4vw 2vw 4vw;
+        overflow: visible;
+        background-color: transparent;
+    }
+
+    main .content .applications-list .banner-container .swiper .swiper-slide a {
+        width: calc(100vw - 8vw);
+        height: 56vw;
+        display: block;
+
+    }
+
+    main .content .applications-list .banner-container .pcSwiper {
+        display: none;
+    }
+
+    main .content .applications-list .banner-container .mobileSwiper {
+        display: block;
+        overflow: hidden;
+    }
+
+    main .content .applications-list .mobileSwiper .application-info-picture {
+        width: 100%;
+        height: 40vw;
+        border-radius: 0.65vw;
+        position: relative;
+    }
+
+    main .content .applications-list .mobileSwiper .application-info-picture::before {
+        content: "";
+        display: block;
+        padding-bottom: 42.85%
+    }
+
+    main .content .applications-list .mobileSwiper .application-info-picture::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('../../yibazhan/images/banner-bg.png') no-repeat center;
+        background-size: 30%;
+        background-color: var(--app-announcement-color);
+    }
+
+    main .content .applications-list .mobileSwiper .application-link {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        padding-top: 1.3vw;
+    }
+
+    main .content .applications-list .mobileSwiper .application-link img {
+        width: 13vw;
+        height: 13vw;
+        margin-right: 2vw !important;
+        border-radius: 2vw;
+        position: relative;
+    }
+
+    main .content .applications-list .mobileSwiper .application-link img::before {
+        content: "";
+        display: block;
+        padding-bottom: 100%
+    }
+    main .content .applications-list .mobileSwiper .application-link img::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('../../yibazhan/images/app-bg.png?v=1') no-repeat center;
+        background-size: 100%;
+        background-color: var(--app-announcement-color);
+    }
+
+    main .content .applications-list .mobileSwiper .application-link .information {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+        padding: 3vw 0 3vw 0;
+    }
+
+    main .content .applications-list .mobileSwiper .application-link .information .name-description {
+        flex: 1;
+        width: 50vw;
+    }
+
+    main .content .applications-list .mobileSwiper .application-link .information .name-description .name {
+        color: var(--text-color);
+        font-size: 4vw;
+    }
+
+    main .content .applications-list .mobileSwiper .application-link .information .name-description .description {
+        font-size: 3.5vw;
+        margin-top: 1vw;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: var(--app-description-color);
+    }
+
+    main .content .applications-list .mobileSwiper .application-link .information .setup {
+        font-size: 3.5vw;
+        margin-left: 8vw;
+        color: var(--btn-default-text-color);
+        border-radius: 10vw;
+        padding: 1.5vw 4vw;
+        background-color: var(--mobile-setups-background-color);
+    }
+
+    main .nav .title {
+        display: none;
+    }
+
+    main .nav ul {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        background-color: var(--nav-bar-background);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        backdrop-filter: blur(20px) saturate(180%);
+    }
+
+    main .nav ul li span {
+        margin-right: 0;
+    }
+
+    main .nav ul li {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #999999;
+        font-size: 3.5vw;
+        margin: 2vw;
+        padding: 2vw;
+    }
+
+    main .nav ul li.active {
+        background-color: var(--mobile-nav-active-bg);
+        color: #007aff;
+    }
+
+    main .content .announcement {
+        display: none;
+    }
+
+    main .applications-list .application .content ul {
+        display: block;
+        width: 100%;
+    }
+
+    main .applications-list .application .content ul li .application-link {
+        padding-left: 4vw;
+    }
+
+    main .nav ul li.active .icon-tab-icon-tuijian-default::before {
+        content: "\e901";
+        color: #007aff;
+    }
+
+    main .nav ul li.active .icon-tab-icon-yule-default::before {
+        content: "\e903";
+        color: #007aff;
+    }
+
+    main .nav ul li.active .icon-tab-icon-zhibo-default::before {
+        content: "\e907";
+        color: #007aff;
+    }
+
+    main .nav ul li.active .icon-tab-icon-shipin-default::before {
+        content: "\e904";
+        color: #007aff;
+    }
+
+    main .applications-list .application .title {
+        font-size: 5vw;
+        margin-bottom: 0;
+        padding: 4vw;
+    }
+
+    main .applications-list .application .content ul li .application-link img {
+        width: 13vw;
+        height: 13vw;
+        margin-right: 2vw !important;
+        border-radius: 2vw;
+    }
+
+    main .applications-list .application .content ul li .application-link .information {
+        padding: 4vw 4vw 4vw 0;
+    }
+
+    main .nav .mobile-announcement {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1vw 2vw 1vw;
+        background-color: var(--mobile-announcement-background-color);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
+    }
+
+    main .nav .mobile-announcement .icon-icon-icon-dsp::before {
+        content: "\e908";
+        color: white;
+        font-size: 7vw;
+    }
+
+    main .nav .mobile-announcement .text {
+        overflow: hidden;
+        height: 4vw;
+    }
+
+    main .nav .mobile-announcement .marquee-mob {
+        color: white;
+        font-size: 3.5vw;
+        margin-left: 1vw;
+        overflow: hidden;
+        white-space: nowrap;
+        display: inline-block;
+    }
+
+    main .applications-list .application .content ul li .application-link .information .name-description .name {
+        font-size: 4vw;
+        width: 50vw;
+    }
+
+    main .applications-list .application .content ul li .application-link .information .name-description .description {
+        font-size: 3.5vw;
+        margin-top: 1vw;
+        overflow: hidden
+    }
+
+    main .applications-list .application .content ul li .application-link .information .setup {
+        font-size: 3.5vw;
+        margin-left: 8vw;
+        padding: 1.5vw 4vw;
+        background-color: var(--mobile-setups-background-color);
+    }
+
+    main .nav ul li span {
+        font-size: 8vw;
+    }
+
+    main .application .fun-banner {
+        display: block;
+    }
+
+    main .application .fun-banner .fun-title {
+        color: var(--text-color);
+        font-size: 6.5vw;
+        margin: auto 4vw;
+        padding: 4vw 0;
+        font-weight: 500;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    main .application .fun-banner .funSwiper {
+        width: calc(100vw - 8vw);
+        margin: 4vw;
+        height: 68.8vw;
+        overflow: hidden;
+    }
+
+    main .application .fun-banner .funSwiper a {
+        display: block;
+    }
+
+    main .application .fun-banner .funSwiper .top-title {
+        color: var(--text-color);
+        font-size: 4.5vw;
+
+    }
+
+    main .application .fun-banner .funSwiper .top-title .app-desc {
+        font-size: 4vw;
+        font-weight: 400;
+        color: var(--mobile-banner-desc-background-color);
+        padding: 1vw 0 1.5vw 0;
+    }
+
+    main .application .fun-banner .funSwiper .bottom-content {
+        position: relative !important;
+        width: calc(100vw - 8vw);
+        height: 58vw;
+        background-color: var(--app-announcement-color);
+        border-radius: 1vw;
+        overflow: hidden;
+    }
+
+    main .application .fun-banner .funSwiper .bottom-content .application-link {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 4vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        z-index: 90;
+        -webkit-backdrop-filter: blur(3px) saturate(90%);
+        backdrop-filter: blur(3px) saturate(90%);
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 11%, rgba(0, 0, 0, 0.3) 68%);
+    }
+
+    main .application .fun-banner .funSwiper .application-link img {
+        width: 10vw;
+        height: 10vw;
+        margin-right: 1.5vw;
+        border-radius: 2vw;
+        position: relative;
+    }
+    main .application .fun-banner .funSwiper .application-link img::before {
+        content: "";
+        display: block;
+        padding-bottom: 100%
+    }
+    main .application .fun-banner .funSwiper .application-link img::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('../../yibazhan/images/app-bg.png?v=1') no-repeat center;
+        background-size: 100%;
+        background-color: var(--app-announcement-color);
+    }
+
+    main .application .fun-banner .funSwiper .application-link .information {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    main .application .fun-banner .funSwiper .application-link .information .name-description {
+        flex: 1;
+    }
+
+    main .application .fun-banner .funSwiper .application-link .information .name-description .name {
+        color: white;
+    }
+
+    main .application .fun-banner .funSwiper .application-link .information .name-description .description {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 3vw;
+        margin-top: 1.5vw;
+    }
+
+    main .application .fun-banner .funSwiper .application-link .information .setup {
+        color: white;
+        border-radius: 35px;
+        font-size: 3.5vw;
+        margin-left: 8vw;
+        padding: 1.5vw 4vw;
+        background-color: rgba(238, 238, 239, 0.3);
+    }
+
+    main .application .fun-banner .funSwiper .application-info-picture {
+        width: 100%;
+        height: 58vw;
+        object-fit: contain;
+        vertical-align: middle;
+        position: relative;
+    }
+    main .application .fun-banner .funSwiper .application-info-picture::before {
+        content: "";
+        display: block;
+        padding-bottom: 62.85%
+    }
+    main .application .fun-banner .funSwiper .application-info-picture::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('../../yibazhan/images/banner-bg.png') no-repeat center;
+        background-size: 50%;
+        background-color: var(--app-announcement-color);
+    }
+
+    main .fun-title {
+        display: flex;
+    }
+
+    main .fun-title h1 {
+        flex: 1;
+    }
+
+    main .theme-container {
+        position: relative;
+        background-color: var(--mobile-theme-background-color);
+        border-radius: 35px;
+        padding: 1vw 2vw;
+        width: 14vw;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    main .theme-container .theme-set {
+        font-size: 4vw;
+        color: var(--mobile-theme-text-color);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    main .theme-container .icon-moon {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 55%;
+        font-size: 4vw;
+        border-radius: 50%;
+        color: var(--mobile-theme-icon-text-color);
+        background-color: var(--mobile-theme-icon-background-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5vw;
+        width: 5vw;
+        height: 5vw;
+        transition: all 0.2s linear;
+    }
+
+    main .theme-container.dark .icon-moon {
+        left: 1% !important;
+    }
+
+    main .theme-container.light .icon-moon {
+        left: 55% !important;
+    }
+
+    main .theme-container.dark .icon-moon::before {
+        content: "\e90a" !important;
+    }
+
+    main .theme-container.light .icon-moon::before {
+        content: "\e909" !important;
+    }
+
+    .notice-popup .popup-content {
+        width: 70vw;
+    }
+
+    main .content .applications-list .swiper-container {
+        display: none;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(10%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
